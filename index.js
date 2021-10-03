@@ -27,7 +27,7 @@ app.get('/api/courses', (req, res) => {
 app.get('/api/courses/:id', (req, res) => {
     const course = courses.find((c) => c.id === parseInt(req.params.id));
     if (!course) {
-        res.status(404).send("There is no course with the given id");
+        return res.status(404).send("There is no course with the given id");
     }
     res.send(course);
 });
@@ -42,8 +42,7 @@ app.post('/api/courses', (req, res) => {
 
     // Check error
     if (error) {
-        res.send(error.details[0].message);
-        return;
+        return res.send(error.details[0].message);
     }
 
     const course = {
@@ -60,8 +59,7 @@ app.put('/api/courses/:id', (req, res) => {
     // Check existence
     const course = courses.find((c) => c.id === parseInt(req.params.id));
     if (!course) {
-        res.status(404).send("There is no course with the given id");
-        return;
+        return res.status(404).send("There is no course with the given id");
     }
 
     // Validate request body via shema
@@ -69,13 +67,23 @@ app.put('/api/courses/:id', (req, res) => {
 
     // Check error
     if (error) {
-        res.send(error.details[0].message);
-        return;
+        return res.send(error.details[0].message);
     }
 
     course.name = value.name;
     res.send(course);
 
+});
+
+app.delete('/api/courses/:id', (req, res) => {
+    const course = courses.find((c) => c.id === parseInt(req.params.id));
+    if (!course) {
+        return res.status(404).send("The course with the given ID not found.");
+    }
+
+    courses.splice(courses.indexOf(course), 1);
+
+    res.send("Successfully deleted");
 });
 
 function validateCourse(requestBody) {
