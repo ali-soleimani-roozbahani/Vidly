@@ -37,6 +37,48 @@ app.get('/api/courses/:id', (req, res) => {
  */
 app.post('/api/courses', (req, res) => {
 
+    // Validate request body via shema
+    const { error, value } = validateCourse(req.body);
+
+    // Check error
+    if (error) {
+        res.send(error.details[0].message);
+        return;
+    }
+
+    const course = {
+        id: courses.length + 1,
+        name: value.name
+    };
+
+    courses.push(course);
+
+    res.send(course);
+});
+
+app.put('/api/courses/:id', (req, res) => {
+    // Check existence
+    const course = courses.find((c) => c.id === parseInt(req.params.id));
+    if (!course) {
+        res.status(404).send("There is no course with the given id");
+        return;
+    }
+
+    // Validate request body via shema
+    const { error, value } = validateCourse(req.body);
+
+    // Check error
+    if (error) {
+        res.send(error.details[0].message);
+        return;
+    }
+
+    course.name = value.name;
+    res.send(course);
+
+});
+
+function validateCourse(requestBody) {
     // Define a shema for validating inputs came from client
     const schema = Joi.object({
         name: Joi.string()
@@ -44,23 +86,8 @@ app.post('/api/courses', (req, res) => {
             .required()
     });
 
-    // Validate request body via shema
-    const { error, value } = schema.validate(req.body);
-
-    // Check error
-    if (error) {
-        res.send(error.details[0].message);
-    } else {
-        const course = {
-            id: courses.length + 1,
-            name: value.name
-        };
-
-        courses.push(course);
-
-        res.send(course);
-    }
-});
+    return schema.validate(requestBody);
+}
 
 const port = process.env.PORT || 3000;
 app.listen(port, () => console.log(`Listening to the port ${port}...`));
