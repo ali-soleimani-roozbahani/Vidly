@@ -12,11 +12,7 @@ const courses = [
 ];
 
 router.get('/', (req, res) => {
-    if (Object.keys(req.query).length === 0) {
-        res.send(courses);
-    } else {
-        res.send(req.query);
-    }
+    res.send(courses);
 });
 
 router.get('/:id', (req, res) => {
