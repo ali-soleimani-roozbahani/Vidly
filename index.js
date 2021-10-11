@@ -5,9 +5,14 @@ const logger = require('./middlewares/logger');
 const config = require('config');
 const authenticator = require('./middlewares/authenticator');
 const express = require('express');
+const mongoose = require('mongoose');
+const genresRouter = require('./routes/genres');
 const app = express();
-const coursesRouter = require('./routes/courses');
-const homeRouter = require('./routes/home');
+
+// Connect to the MongoDB
+mongoose.connect('mongodb://localhost/vidly')
+    .then(() => console.log('Connected to the MongoDB'))
+    .catch(err => console.log('Could not connect to the MongoDB', err))
 
 // Use middlewares
 app.use(express.json());
@@ -18,8 +23,7 @@ if (app.get('env') === 'development') {
 app.use(authenticator);
 
 // Routers
-app.use('/', homeRouter);
-app.use('/api/courses', coursesRouter);
+app.use('/api/genres', genresRouter);
 
 // Launch the app
 const port = process.env.PORT || 3000;
