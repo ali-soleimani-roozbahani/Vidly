@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const { Customer, validatePost: validatePostRequest, validatePutRequest } = require('../models/customer');
+const { Customer, validateCreateCustomerRequestBody, validateUpdateCustomerRequestBody } = require('../models/customer');
 
 
 router.get('/', async (req, res) => {
@@ -18,7 +18,7 @@ router.get('/:id', async (req, res) => {
 
 router.post('/', async (req, res) => {
     // Validate request body via shema
-    const { error } = validatePostRequest(req.body);
+    const { error } = validateCreateCustomerRequestBody(req.body);
 
     // Check error
     if (error) {
@@ -39,7 +39,7 @@ router.post('/', async (req, res) => {
 router.put('/:id', async (req, res) => {
 
     // Validate request body via shema
-    const { error } = validatePutRequest(req.body);
+    const { error } = validateUpdateCustomerRequestBody(req.body);
 
     // Check error
     if (error) {

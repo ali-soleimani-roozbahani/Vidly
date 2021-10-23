@@ -3,6 +3,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const genresRouter = require('./routes/genres');
 const customersRouter = require('./routes/customers');
+const moviesRouter = require('./routes/movies');
 const app = express();
 
 // Connect to the MongoDB
@@ -16,6 +17,7 @@ app.use(express.json());
 // Use Routers
 app.use('/api/genres', genresRouter);
 app.use('/api/customers', customersRouter);
+app.use('/api/movies', moviesRouter);
 
 // Launch the app
 const port = process.env.PORT || 3000;

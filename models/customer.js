@@ -18,7 +18,7 @@ const Customer = mongoose.model('Customer', new mongoose.Schema({
     }
 }));
 
-function validatePostCustomer(requestBody) {
+function validateCreateCustomerRequestBody(requestBody) {
     // Define a shema for validating inputs came from client
     const schema = Joi.object({
         isGold: Joi.boolean(),
@@ -29,7 +29,7 @@ function validatePostCustomer(requestBody) {
     return schema.validate(requestBody);
 }
 
-function validatePutCustomer(requestBody) {
+function validateUpdateCustomerRequestBody(requestBody) {
     // Define a shema for validating inputs came from client
     const schema = Joi.object({
         isGold: Joi.boolean(),
@@ -41,5 +41,5 @@ function validatePutCustomer(requestBody) {
 }
 
 exports.Customer = Customer;
-exports.validatePostRequest = validatePostCustomer;
-exports.validatePutRequest = validatePutCustomer;
+exports.validateCreateCustomerRequestBody = validateCreateCustomerRequestBody;
+exports.validateUpdateCustomerRequestBody = validateUpdateCustomerRequestBody;
