@@ -22,7 +22,7 @@ router.post('/', async (req, res) => {
     const movie = await Movie.findById(req.body.movieId);
     if (!movie) return res.status(400).send('Invalide movie');
 
-    let rental = new Rental({
+    const rental = new Rental({
         customer: {
             _id: customer._id,
             name: customer.name,
