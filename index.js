@@ -9,6 +9,7 @@ const customersRouter = require('./routes/customers');
 const moviesRouter = require('./routes/movies');
 const rentalRouter = require('./routes/rentals');
 const usersRouter = require('./routes/users');
+const authRouter = require('./routes/auth');
 const app = express();
 const connectionString = 'mongodb://localhost/vidly';
 
@@ -29,6 +30,7 @@ app.use('/api/customers', customersRouter);
 app.use('/api/movies', moviesRouter);
 app.use('/api/rentals', rentalRouter);
 app.use('/api/users', usersRouter);
+app.use('/api/auth', authRouter);
 
 // Launch the app
 const port = process.env.PORT || 3000;
