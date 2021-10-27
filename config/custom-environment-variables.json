@@ -1,5 +1,3 @@
 {
-    "mail": {
-        "password": "express_demo_password"
-    }
+    "jwtPrivateKey": "VIDLY_JWT_PRIVATE_KEY"
 }

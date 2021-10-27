@@ -1,4 +1,5 @@
 // Define moudles
+const config = require('config');
 const express = require('express');
 const mongoose = require('mongoose');
 const Fawn = require('fawn');
@@ -12,6 +13,13 @@ const usersRouter = require('./routes/users');
 const authRouter = require('./routes/auth');
 const app = express();
 const connectionString = 'mongodb://localhost/vidly';
+
+// Checking JWT private key
+console.log('JWT_PRIVATE_KEY : ' + config.get("jwtPrivateKey"));
+if (!config.get('jwtPrivateKey')) {
+    console.error("FATAL ERROR : jwtPrivateKey is not defined.");
+    process.exit(1); // any number exept zero means failure process result
+}
 
 // Connect to the MongoDB
 mongoose.connect(connectionString)
