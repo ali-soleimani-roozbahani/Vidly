@@ -24,12 +24,16 @@ const userSchema = new mongoose.Schema({
         required: true,
         minlength: 6,
         maxlength: 1024
+    },
+
+    roles: {
+        type: [String],
+        default: []
     }
 });
 
 userSchema.methods.generateToken = function () {
-    const token = jwt.sign({ _id: this._id }, config.get('jwtPrivateKey'));
-    return token;
+    return jwt.sign({ _id: this._id, roles: this.roles }, config.get('jwtPrivateKey'));
 }
 
 const User = mongoose.model('User', userSchema);
