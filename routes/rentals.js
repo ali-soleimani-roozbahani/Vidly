@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+const auth = require('../middleware/auth');
 const Fawn = require('fawn');
 const { Rental, validate } = require('../models/rental');
 const { Customer } = require('../models/customer');
@@ -11,7 +12,7 @@ router.get('/', async (req, res) => {
     res.send(rentals);
 });
 
-router.post('/', async (req, res) => {
+router.post('/', auth, async (req, res) => {
     // Validation
     const { error } = validate(req.body);
     if (error) return res.send(error.details[0].message);

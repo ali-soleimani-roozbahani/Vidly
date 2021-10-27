@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+const auth = require('../middleware/auth');
 const { Customer, validateCreateCustomerRequestBody, validateUpdateCustomerRequestBody } = require('../models/customer');
 
 
@@ -16,7 +17,7 @@ router.get('/:id', async (req, res) => {
     res.send(customer);
 });
 
-router.post('/', async (req, res) => {
+router.post('/', auth, async (req, res) => {
     // Validate request body via shema
     const { error } = validateCreateCustomerRequestBody(req.body);
 
@@ -36,7 +37,7 @@ router.post('/', async (req, res) => {
     res.send(customer);
 });
 
-router.put('/:id', async (req, res) => {
+router.put('/:id', auth, async (req, res) => {
 
     // Validate request body via shema
     const { error } = validateUpdateCustomerRequestBody(req.body);
@@ -62,7 +63,7 @@ router.put('/:id', async (req, res) => {
 
 });
 
-router.delete('/:id', async (req, res) => {
+router.delete('/:id', auth, async (req, res) => {
     const customer = await Customer.findByIdAndRemove(req.params.id);
 
     if (!customer) {
