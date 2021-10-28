@@ -1,7 +1,9 @@
 // Define moudles
-const config = require('config');
 const express = require('express');
 const mongoose = require('mongoose');
+require('express-async-errors');
+const errorHandler = require('./middleware/errorHandler');
+const config = require('config');
 const Fawn = require('fawn');
 const Joi = require('joi');
 Joi.objectId = require('joi-objectid')(Joi);
@@ -39,6 +41,8 @@ app.use('/api/movies', moviesRouter);
 app.use('/api/rentals', rentalRouter);
 app.use('/api/users', usersRouter);
 app.use('/api/auth', authRouter);
+// Handling errors
+app.use(errorHandler);
 
 // Launch the app
 const port = process.env.PORT || 3000;
