@@ -3,6 +3,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 require('express-async-errors');
 const errorHandler = require('./middleware/errorHandler');
+require('./utils/logger');
 const config = require('config');
 const Fawn = require('fawn');
 const Joi = require('joi');
@@ -15,6 +16,8 @@ const usersRouter = require('./routes/users');
 const authRouter = require('./routes/auth');
 const app = express();
 const connectionString = 'mongodb://localhost/vidly';
+
+
 
 // Checking JWT private key
 console.log('JWT_PRIVATE_KEY : ' + config.get("jwtPrivateKey"));
