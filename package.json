@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest --verbose --watchAll",
+    "env_test": "cross-env NODE_ENV=test node index.js"
   },
   "keywords": [],
   "author": "",
@@ -24,5 +25,10 @@
     "nodemon": "^2.0.14",
     "winston": "^3.3.3",
     "winston-mongodb": "^5.0.7"
+  },
+  "devDependencies": {
+    "cross-env": "^7.0.3",
+    "jest": "^27.3.1",
+    "supertest": "^6.1.6"
   }
 }

@@ -1,14 +1,14 @@
 const mongoose = require('mongoose');
 const Fawn = require('fawn');
 const logger = require('../utils/logger');
-const connectionString = 'mongodb://localhost/vidly';
-
+const config = require('config');
 
 module.exports = function () {
-    mongoose.connect(connectionString)
-        .then(() => logger.info('Connected to the MongoDB'));
+    const db = config.get('db');
 
+    mongoose.connect(db)
+        .then(() => logger.info(`Connected to ${db}`));
 
     // For running db multi transactions (Two Phases Commit)
-    Fawn.init(connectionString);
+    Fawn.init(db);
 }
