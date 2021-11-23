@@ -3,6 +3,8 @@ require('winston-mongodb');
 require('express-async-errors');
 const config = require("config");
 
+const dbConnectionStr = config.get('db');
+
 const logger = winston.createLogger({
     format: winston.format.json(),
 
@@ -13,7 +15,7 @@ const logger = winston.createLogger({
         }),
 
         new winston.transports.MongoDB({
-            db: config.get('db'),
+            db: dbConnectionStr,
             level: 'error'
         }),
 
