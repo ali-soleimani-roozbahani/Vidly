@@ -1,6 +1,7 @@
 const winston = require('winston');
 require('winston-mongodb');
 require('express-async-errors');
+const config = require("config");
 
 const logger = winston.createLogger({
     format: winston.format.json(),
@@ -12,7 +13,7 @@ const logger = winston.createLogger({
         }),
 
         new winston.transports.MongoDB({
-            db: 'mongodb://localhost/vidly',
+            db: config.get('db'),
             level: 'error'
         }),
 
