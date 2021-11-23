@@ -5,8 +5,12 @@
   "main": "index.js",
   "scripts": {
     "test": "jest --verbose --watchAll",
+    "start": "node index.js",
     "env_test": "cross-env NODE_ENV=test node index.js",
     "env_dev": "cross-env NODE_ENV=development node index.js"
+  },
+  "engines": {
+    "node": "14.18.1"
   },
   "keywords": [],
   "author": "",
