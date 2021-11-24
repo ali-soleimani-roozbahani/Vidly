@@ -11,4 +11,4 @@ module.exports = function () {
 
     // For running db multi transactions (Two Phases Commit)
     Fawn.init(db);
-}
+};

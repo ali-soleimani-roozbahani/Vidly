@@ -1,9 +1,5 @@
 const winston = require('winston');
-require('winston-mongodb');
 require('express-async-errors');
-const config = require("config");
-
-const dbConnectionStr = config.get('db');
 
 const logger = winston.createLogger({
     format: winston.format.json(),
@@ -13,12 +9,6 @@ const logger = winston.createLogger({
             filename: './logs/pipline.log',
             level: 'error'
         }),
-
-        new winston.transports.MongoDB({
-            db: dbConnectionStr,
-            level: 'error'
-        }),
-
         new winston.transports.Console({
             level: 'info'
         })
