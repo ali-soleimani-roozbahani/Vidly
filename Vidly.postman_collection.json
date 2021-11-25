@@ -1,0 +1,473 @@
+{
+	"info": {
+		"_postman_id": "fa9f1bc2-0436-42de-9ae2-9eba17c25e0c",
+		"name": "Vidly",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "genres",
+			"item": [
+				{
+					"name": "Create genre",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-auth-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTlmNGNiMjlhNjI4NzM3YTY5NzFiZDMiLCJyb2xlcyI6W10sImlhdCI6MTYzNzgyOTgyOX0.JAVw1Yugd2As1-6J1kBxzmtgsDiz9_2JPr8EXihLBjo",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Thriller\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/genres",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"genres"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get genres",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/genres",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"genres"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete genre",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "x-auth-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTc5NDljYmQ4YmJmMjJmM2JkMzlmOGIiLCJyb2xlcyI6WyJhZG1pbiJdLCJpYXQiOjE2MzUzMzg5Njh9.Taf5Uigcgj8MVnCxoGYvaHrtknaIwaX0NCv09HTaS9c",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/genres/617408602c8a7ef495f3524f",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"genres",
+								"617408602c8a7ef495f3524f"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update genre",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\" : \"Romantic\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/genres/61644faf45728bfd85367380",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"genres",
+								"61644faf45728bfd85367380"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "customers",
+			"item": [
+				{
+					"name": "Create customer",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-auth-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTc5MWY3MmYxOTRlMWFjNGIwYTRmNjEiLCJpYXQiOjE2MzUzMjgwOTF9.73PMgDnx0lRhdX-N5cqGxYi-XjT6ZnsSReKHVls99DU",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Erfaneh\",\r\n    \"phone\": \"09393994873\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/customers",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"customers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update customer",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "x-auth-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTc5MWY3MmYxOTRlMWFjNGIwYTRmNjEiLCJpYXQiOjE2MzUzMjgwOTF9.73PMgDnx0lRhdX-N5cqGxYi-XjT6ZnsSReKHVls99DU",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"isGold\": true,\r\n    \"name\": \"Ahmad Asadi\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/customers/61657e7601c470a8986432f1",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"customers",
+								"61657e7601c470a8986432f1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get all customers",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/customers",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"customers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete customer",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "x-auth-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTc5MWY3MmYxOTRlMWFjNGIwYTRmNjEiLCJpYXQiOjE2MzUzMjgwOTF9.73PMgDnx0lRhdX-N5cqGxYi-XjT6ZnsSReKHVls99DU",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/customers/61657e7601c470a8986432f1",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"customers",
+								"61657e7601c470a8986432f1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "movies",
+			"item": [
+				{
+					"name": "Create movie",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-auth-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTlmNGNiMjlhNjI4NzM3YTY5NzFiZDMiLCJyb2xlcyI6W10sImlhdCI6MTYzNzgyOTgyOX0.JAVw1Yugd2As1-6J1kBxzmtgsDiz9_2JPr8EXihLBjo",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\":\"Conjuring 2\",\r\n    \"genreId\":\"619f4ce99a628737a6971bd8\",\r\n    \"numberInStock\": 10,\r\n    \"dailyRentalRate\": 20\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/movies",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"movies"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get movies",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/movies",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"movies"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete movie",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "x-auth-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTc5MWY3MmYxOTRlMWFjNGIwYTRmNjEiLCJpYXQiOjE2MzUzMjgwOTF9.73PMgDnx0lRhdX-N5cqGxYi-XjT6ZnsSReKHVls99DU",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/movies/617413c57c6b7e1d6d901dd0",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"movies",
+								"617413c57c6b7e1d6d901dd0"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update movie",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "x-auth-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTc5MWY3MmYxOTRlMWFjNGIwYTRmNjEiLCJpYXQiOjE2MzUzMjgwOTF9.73PMgDnx0lRhdX-N5cqGxYi-XjT6ZnsSReKHVls99DU",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"The Mother\",\r\n    \"genreId\": \"617404e2a226c1b28ed10146\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/movies/617407b42c8a7ef495f35248",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"movies",
+								"617407b42c8a7ef495f35248"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "rentals",
+			"item": [
+				{
+					"name": "Create rental",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-auth-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTc5MWY3MmYxOTRlMWFjNGIwYTRmNjEiLCJpYXQiOjE2MzUzMjgwOTF9.73PMgDnx0lRhdX-N5cqGxYi-XjT6ZnsSReKHVls99DU",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"customerId\": \"617405901f80779fd7726e03\",\r\n    \"movieId\": \"617419702e4092287adcd4ae\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/rentals",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"rentals"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get rentals",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/rentals",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"rentals"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "users",
+			"item": [
+				{
+					"name": "Register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Ali Soleimani\",\r\n    \"email\": \"ali.soleimani@gmail.com\",\r\n    \"password\": \"123456\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/users",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"ali.soleimani@gmail.com\",\r\n    \"password\": \"123456\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/auth",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"auth"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "url",
+			"value": "https://fast-chamber-41274.herokuapp.com/api"
+		}
+	]
+}
